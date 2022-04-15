@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main-drop-list :listData="listData"></main-drop-list>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
+import MainDropList from './components/MainDropList.vue'
+export default{
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      listData:[
+        {text:'香蕉',value:'one'},
+        {text:'苹果',value:'two'},
+        {text:'水蜜桃',value:'three'},
+        {text:'火龙果',value:'four'},
+        {text:'荔枝',value:'five'},
+        {text:'山竹',value:'six'},
+      ]
+    }
+  },
+  components:{
+    MainDropList
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
