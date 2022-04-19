@@ -10,12 +10,14 @@
       :list-data="listData"
       v-show="showList"
     ></dropdown-list>
+    <model-box></model-box>
   </div>
 </template>
 
 <script>
 import DropdownList from "./dropdown/DropdownList.vue";
 import DropInput from "./dropdown/DropInput.vue";
+import ModelBox from './modelbox/ModelBox.vue'
 export default {
   name: "MainDropList",
 
@@ -42,6 +44,12 @@ export default {
           this.showList = !this.showList;
         // refresh();
       });
+       this.$bus.$on('showBox',()=>{
+            this.showList=!this.showList
+        })
+        //  this.$bus.$on('showBox',()=>{
+        //     this.showList=!this.showList
+        // })
   },
   props: {
     listData: {
@@ -54,6 +62,7 @@ export default {
   components: {
     DropdownList,
     DropInput,
+    ModelBox
   },
 };
 </script>

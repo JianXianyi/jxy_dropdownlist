@@ -1,5 +1,5 @@
 <template>
-  <div class="input">
+  <div class="input" @click="changeStatus">
     <span>{{ currentText }}</span>
     <span>
       <div ref="trangle" class="trangle" @click="changeStatus"></div>
@@ -47,6 +47,7 @@ export default {
   height: 30px;
   line-height: 30px;
   text-align: center;
+  cursor: pointer;
 }
 .trangle {
   cursor: pointer;

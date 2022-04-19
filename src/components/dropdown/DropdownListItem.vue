@@ -22,6 +22,7 @@ export default {
         }
     },
     methods:{
+        //修改input框内的文字
         changeInp(dataText,dataVal){
             this.$bus.$emit("changeInp",dataText,dataVal)
         }
@@ -29,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     .list-item{
         width: 80%;
         text-align: center;

@@ -6,6 +6,12 @@
       :data-text="item.text"
       :data-val="item.value"
     ></dropdown-list-item>
+    <div
+      class="list-item"
+      @click="addNewItem"
+    >
+      +
+    </div>
   </div>
 </template>
 
@@ -15,11 +21,11 @@ import DropInput from "./DropInput.vue";
 export default {
   components: { DropdownListItem, DropInput },
   name: "DropdownList",
-  data(){
-    return{
-      currentText:this.listData[0].text,
-      currentVal:this.listData[0].value
-    }
+  data() {
+    return {
+      currentText: this.listData[0].text,
+      currentVal: this.listData[0].value,
+    };
   },
   props: {
     listData: {
@@ -29,15 +35,18 @@ export default {
       },
     },
   },
+  methods:{
+    addNewItem(){
+      this.$bus.$emit('showBox')
+    }
+  },
   mounted() {
-    const div = document.createElement("div");
-    // const button=document.createElement('button')
-    div.className = "list-item";
-    div.innerHTML = "+";
-    // div.appendChild(button)
-    // console.log(this.$refs.list.appendChild(div))
-    const dropitem = this.$refs.list.children;
-    // console.log(dropitem);
+    // const div = document.createElement("div");
+    // const add = document.createElement("span");
+    // div.className = "list-item";
+    // add.innerText = "+";
+    // div.appendChild(add);
+    // this.$refs.list.appendChild(div);
   },
 };
 </script>
